@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+
+function LikeCounter() {
+  const [likes, setLikes] = useState(0);
+
+  const increaseLikes = () => {
+    setLikes(likes + 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', marginTop:'70px,', backgroundColor:'black', height:'100vh', msoverflowY:'hidden'}}>
+      <img src={'https://images.pexels.com/photos/94272/sports-car-pkw-auto-vehicle-94272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'} width={600} height={300} alt="Like" />
+      <h3 style={{ fontFamily: 'sans-serif', fontSize: '30px',marginTop:'50px', fontWeight: 'bold', color:'wheat' }}>
+  Number of Likes: <span style={{ color: 'orangered' }}>{likes}</span>
+</h3>
+      <button style={{backgroundColor:'transparent', fontSize:'17px', fontFamily:'cursive', fontWeight:'bold', color:'orangered', width:'120px', padding:'5px'}} onClick={increaseLikes}>Like</button>
     </div>
   );
 }
 
-export default App;
+export default LikeCounter;
